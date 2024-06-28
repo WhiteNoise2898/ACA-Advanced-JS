@@ -1,0 +1,160 @@
+//1. return the sum of two numbers
+
+function sum (){
+let a = +prompt("Please enter the first number.");
+let b = +prompt("Please enter the second number.");
+
+ let answer = a + b ;
+alert("The sum of " + a + " and " + b + " is " + answer);
+
+}
+sum();
+
+
+ **************
+
+//2. minutes to seconds 
+
+function seconds(){
+let mins = +prompt("Please enter a number.");
+
+let secInAMin = 60;
+let conversion = mins * secInAMin;
+alert("The conversion of " + mins + " minutes to seconds is " + conversion);
+
+}
+
+seconds();
+****************
+
+
+//3. convert age to days
+
+function ageToDays(){
+let ageInYears = +prompt("Please enter your age.");
+
+let daysInAYear = 365;
+let ageInDays = ageInYears * daysInAYear;
+
+alert("Your age in days is " + ageInDays);
+
+}
+ageToDays();
+
+**************
+
+//4. surname concat
+function nameString(){
+let yourName = prompt("Please enter your name.");
+let surname = "Edabit";
+let result = yourName + surname;
+alert("The result is " + result);
+
+
+}
+nameString();
+
+*************
+
+//5. number equality 
+
+function isEqual(num1, num2){
+return num1 === num2 ;
+
+}
+
+isEqual();
+console.log(function isEqual());
+
+
+******************
+
+//6.output explanation 
+
+function varTest() {
+if(true){
+var x = 1;
+console.log(x);
+}
+console.log(x);
+}
+
+function letTest() {
+if(true){
+let y = 2;
+console.log(y);
+}
+console.log(y);
+}
+
+function constTest() {
+if(true){
+const z = 3;
+console.log(z);
+}
+console.log(z);
+}
+
+varTest(); //1 , 1             because var is a function or globally scoped
+letTest(); //2 , referenceError     because let is a block scoped
+constTest(); // 3, referenceError   because const is a block scoped 
+ 
+
+***************
+
+7.hoisting
+console.log(a);
+var a = 5;         //undefined 
+
+console.log(b);
+let b = 10;       //referenceError
+
+console.log(c);
+const c = 15;     //referenceError
+
+
+**************** 
+
+8. 
+
+var a = 2;
+var b = a;
+ b++;
+console.log(a); //2 because a = 2
+console.log(b);  //3 because b is copying the value of the a which is 2 and addind 1 because of ++
+
+
+*************
+
+9.
+
+var c = [1, 2, 3];
+var d = c;
+d.push(4);
+console.log(c);  //[1, 2, 3] almost the same as in the previous example, d does copy the value of the c and store it in a its box
+console.log(d);  //[1, 2, 3, 4]
+
+
+************
+
+10.
+
+var a = [1, 2, 3];
+var b = a;
+console.log(a);   //[1, 2, 3] 
+console.log(b);   //[1, 2, 3] 
+
+b = [4, 5, 6,];
+console.log(a);   //[1, 2, 3] 
+console.log(b);    //[4, 5, 6] because we dont change the link of the object, we just change the con tent of the object as in the previous example
+
+
+*****************
+11. 
+
+
+
+
+
+
+
