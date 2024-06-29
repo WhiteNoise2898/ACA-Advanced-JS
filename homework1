@@ -151,6 +151,137 @@ console.log(b);    //[4, 5, 6] because we dont change the link of the object, we
 
 *****************
 11. 
+function foo(x){
+   x.push(4):
+   console.log(x); //[1, 2, 3, 4] because var a is declared before calling the foo(a) function
+   x = [4, 5, 6];
+   x.push(7);
+   console.log(x); //[4, 5, 6, 7] because x's aka a's value has been changed 
+}
+var a = [1, 2, 3]; 
+foo(a);
+console.log(a);// i did think the answer would be [4, 5, 6, 7] but i did my research and the correct answer was [1, 2, 3, 4], but i didnt understand the explanaition completely
+
+12. 
+
+function foo(wrapper){
+wrapper.a = 42;
+}
+
+var obj = { a:2}
+foo(obj);
+console.log(obj.a);// the answer will be 42 because of the code sequence, which is a=2, then it becomes 42 because of the foo function
+
+13. 
+
+console.log(x); // 10;
+console.log(y); //  11 the same example as in task 8
+
+14. 
+
+var arr1 = [1, 2, 3];
+var arr2 = arr1;
+ arr2.push(4);
+console.log(arr1); // both of the outputs will be [1, 2, 3, 4] because in the case of a reference type we do not change the addres, the link of the object but change its walue and as both referenced to the same link means the output will be the same
+console.log(arr2);
+
+15.
+var arr1 = [1, 2, 3];
+var arr2 = arr1;
+ arr2 = [4, 5, 6]
+console.log(arr1);
+console.log(arr2); // in this case arr 1 is still [1,2,3] and arr2 is [4, 5 6] because we have changed the reference of the array 
+
+16. 
+console.log(myobj.key); // the key = 'newValue' because of the sintacs as in the task 12
+
+17.  
+
+function mutateArray(arr) {
+arr.push(4);
+arr = [4, 5, 6];
+arr.push(7);
+console.log(arr); //[4, 5,6, 7]
+}
+
+var myArray = [1, 2, 3];
+mutateArray(myArray); 
+console.log(myArray);  // [1, 2, 3, 4]  same as in 11, it does work until reference changing
+
+
+18.
+consoli.log(myObjetct.a) // a=99 same as in task 12
+
+19. 
+console.log(myNumber); // 6 
+
+20.
+console.log(sum(5,3))
+the output will be 8 cus function is abel to use the code even before it has been declared becaues of its hoisting
+
+21. 
+
+output is 20, the same logics as in task 20
+
+22.
+console.log(foo); //undefined
+var foo = "bar";
+console.log(foo);/"bar" outputs the var because the engine reads the code from top to the bottom from left to right first
+function foo(){}
+
+
+23.
+var foo = "bar";
+function foo(){}
+console.log(foo); // outputs the function because of the function first rule
+
+24.
+console.log(bar); //undefined
+var bar = 100;
+console.log(bar);// 100
+
+if(true){
+console.log(baz); //reference error
+let baz = 200;
+}
+
+
+25.
+ console.log(foo); //undefined
+var foo ="hello";
+
+if (true) {
+console.log(bar);
+let bar = "world";  //reference error
+}
+console.log(foo);  //"hello"
+
+26. 
+console.log(1 + '2'); //'12'
+console.log('5'-3); //2      in the case of -, *, /, and other arithmetical operators the math will be as we all know, except +
+console.log('10' * '2');  //20
+console.log('10' / '2');  //5 
+console.log('10' * 'a');  //nan 10 * a result will be not a number because one of them is not a number
+console.log(true + false);  //1 because true is 1 false is 0 1+0=1
+console.log(!'hello');  //false, the not operator rule
+console.log(!!0);  //false
+console.log(!!1);  //true
+console.log(!!"");  //false
+console.log(!!" ");  //true, because its not empty
+console.log(Number('123')); // 123
+console.log(Number('123abc')); // i did google it but didn't get the reason why it outputs 123
+console.log(Number(true);  //1
+console.log(Number(false);  //0
+console.log(Number(null);  //0
+console.log(Number(undefined);  //0
+console.log(String(123);  //'123'
+console.log(String(true);  //'true'
+console.log(String(false);  // 'false'
+console.log(String(null);  //'null'
+console.log(String(undefined);  //'undefined'
+
+
+
 
 
 
