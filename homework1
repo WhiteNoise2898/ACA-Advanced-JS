@@ -234,7 +234,7 @@ console.log(myNumber); // 6
 
 20.
 console.log(sum(5,3))
-the output will be 8 cus function is abel to use the code even before it has been declared becaues of its hoisting
+the output will be 8 cus function is abel to use the code even before it has been declared because of its hoisting
 
 *******************
 
@@ -298,15 +298,37 @@ console.log(!!"");  //false
 console.log(!!" ");  //true, because its not empty
 console.log(Number('123')); // 123
 console.log(Number('123abc')); // i did google it but didn't get the reason why it outputs 123
-console.log(Number(true);  //1
-console.log(Number(false);  //0
-console.log(Number(null);  //0
-console.log(Number(undefined);  //0
-console.log(String(123);  //'123'
-console.log(String(true);  //'true'
-console.log(String(false);  // 'false'
-console.log(String(null);  //'null'
-console.log(String(undefined);  //'undefined'
+console.log(Number(true));  //1
+console.log(Number(false));  //0
+console.log(Number(null));  //0
+console.log(Number(undefined));  //0
+console.log(String(123));  //'123'
+console.log(String(true));  //'true'
+console.log(String(false));  // 'false'
+console.log(String(null));  //'null'
+console.log(String(undefined));  //'undefined'
+console.log(Boolean(1));  // true
+console.log(Boolean(0));  //false
+console.log(Boolean('hello'));  // true
+console.log(Boolean(''));  // false
+console.log(Boolean(null));  // false
+console.log(Boolean(undefined));  //false
+console.log(Boolean({}));  //true
+console.log(Boolean([]));  //true
+console.log(0 == ''); //true
+console.log(0 == '0'); //true
+console.log(false == '0'); //true
+console.log(false == 'false'); //true
+console.log(null == undefined); //true
+console.log(null === undefined); //false
+console.log(' /t/r/n' == 0); //flase
+console.log([] == ![]); //true
+console.log([] == 0); //false
+console.log([1,2] == '1,2'); //true
+
+
+
+
 
 
 
