@@ -162,6 +162,8 @@ var a = [1, 2, 3];
 foo(a);
 console.log(a);// i did think the answer would be [4, 5, 6, 7] but i did my research and the correct answer was [1, 2, 3, 4], but i didnt understand the explanaition completely
 
+***************
+
 12. 
 
 function foo(wrapper){
@@ -172,10 +174,14 @@ var obj = { a:2}
 foo(obj);
 console.log(obj.a);// the answer will be 42 because of the code sequence, which is a=2, then it becomes 42 because of the foo function
 
+*****************
+
 13. 
 
 console.log(x); // 10;
 console.log(y); //  11 the same example as in task 8
+
+**********************
 
 14. 
 
@@ -185,6 +191,8 @@ var arr2 = arr1;
 console.log(arr1); // both of the outputs will be [1, 2, 3, 4] because in the case of a reference type we do not change the addres, the link of the object but change its walue and as both referenced to the same link means the output will be the same
 console.log(arr2);
 
+*********************
+
 15.
 var arr1 = [1, 2, 3];
 var arr2 = arr1;
@@ -192,8 +200,12 @@ var arr2 = arr1;
 console.log(arr1);
 console.log(arr2); // in this case arr 1 is still [1,2,3] and arr2 is [4, 5 6] because we have changed the reference of the array 
 
+****************************
+
 16. 
 console.log(myobj.key); // the key = 'newValue' because of the sintacs as in the task 12
+
+**************************
 
 17.  
 
@@ -208,20 +220,28 @@ var myArray = [1, 2, 3];
 mutateArray(myArray); 
 console.log(myArray);  // [1, 2, 3, 4]  same as in 11, it does work until reference changing
 
+***************************
 
 18.
 consoli.log(myObjetct.a) // a=99 same as in task 12
 
+***********************
+
 19. 
 console.log(myNumber); // 6 
+
+*******************
 
 20.
 console.log(sum(5,3))
 the output will be 8 cus function is abel to use the code even before it has been declared becaues of its hoisting
 
-21. 
+*******************
 
+21. 
 output is 20, the same logics as in task 20
+
+*******************
 
 22.
 console.log(foo); //undefined
@@ -229,11 +249,14 @@ var foo = "bar";
 console.log(foo);/"bar" outputs the var because the engine reads the code from top to the bottom from left to right first
 function foo(){}
 
+*******************
 
 23.
 var foo = "bar";
 function foo(){}
 console.log(foo); // outputs the function because of the function first rule
+
+*******************
 
 24.
 console.log(bar); //undefined
@@ -246,6 +269,9 @@ let baz = 200;
 }
 
 
+*******************
+
+
 25.
  console.log(foo); //undefined
 var foo ="hello";
@@ -255,6 +281,8 @@ console.log(bar);
 let bar = "world";  //reference error
 }
 console.log(foo);  //"hello"
+
+*******************
 
 26. 
 console.log(1 + '2'); //'12'
