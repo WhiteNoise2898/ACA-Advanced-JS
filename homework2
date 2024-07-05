@@ -37,20 +37,16 @@ function rps(p1, p2) {
 //2. 
 
 function getMyNumber(n) {
-    // Check if the input is a number or can be converted to a number
     if (typeof n !== "number" || isNaN(n)) {
         throw new Error('This is not a number');
     }
     return n;
 }
 
-// Calculator function that performs basic arithmetic operations
 function calculator(a, b, operator) {
-    // Coerce inputs to numbers using parseFloat
     a = parseInt(a);
     b = parseInt(b);
 
-    // Perform the operation based on the provided operator
     switch (operator) {
         case '+':
             return a + b;
