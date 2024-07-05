@@ -1,0 +1,57 @@
+//1. 
+const options = ["Rock", "Paper", "Scissors"];
+const getRandomOption = () => options[Math.floor(Math.random() * options.length)];
+
+const rps = (p1 = getRandomOption(), p2 = getRandomOption()) => {
+    if (p1 === p2) return "It's a draw";
+    if (
+        (p1 === "Rock" && p2 === "Scissors") ||
+        (p1 === "Scissors" && p2 === "Paper") ||
+        (p1 === "Paper" && p2 === "Rock")
+    ) return "The winner is p1";
+    return "The winner is p2";
+};
+
+console.log(rps("Rock", "Paper")); 
+
+
+// well this one is pretty long and there is no need in const options but i wanted to try
+
+//the other option 
+function rps(p1, p2) {
+    if (p1 === p2) {
+        return "It's a draw";
+    } else if (
+        (p1 === "Rock" && p2 === "Scissors") ||
+        (p1 === "Scissors" && p2 === "Paper") ||
+        (p1 === "Paper" && p2 === "Rock")
+    ) {
+        return "The winner is p1";
+    } else {
+        return "The winner is p2";
+    }
+}
+
+
+
+//2. 
+
+function calculator(a, b, operator){
+  const num1 = Number(a);
+  const num2 = Number(b);
+  
+function getMyNumber(num1 && num2) {
+    // step1
+    if (typeof n !== "number" || n !== n) {
+       throw new Error('This is not a number');
+    }
+
+    //my main logic
+}
+
+try {
+  getMyNumber("4");
+} catch(error) {
+  console.log(error);
+} 
+}
