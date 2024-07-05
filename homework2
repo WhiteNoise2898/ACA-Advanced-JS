@@ -38,15 +38,16 @@ function rps(p1, p2) {
 //2. calculator
 
 function calculator(a, b, operator) {
-function validateNumber(n) {
-    n = Number(n); 
-    if (isNaN(n)) { 
-        return 'This is not a number';
+
+    function validateNumber(n) {
+        n = Number(n); 
+        if (isNaN(n)) { 
+            return 'This is not a number';
+        }
+        return n; 
     }
-    return n; 
-}
-    a = validateNumber(a);
-    b = validateNumber(b);
+a = validateNumber(a);
+b = validateNumber(b);
 
     if (typeof a === 'string') return a; 
     if (typeof b === 'string') return b; 
@@ -71,13 +72,13 @@ function validateNumber(n) {
 3. temperature
 
 function convertTemperature(value, scale) {
-switch (scale.toLowerCase()) {
-    case "c":
-        return (value * 9/5) + 32;
-    case "f":
-        return (value - 32) * 5/9;
-    default: return "Invalid scale";
-}
+    switch (scale.toLowerCase()) {
+        case "c":
+            return (value * 9/5) + 32;
+        case "f":
+            return (value - 32) * 5/9;
+        default: return "Invalid scale";
+    }
 }
 console.log(convertTemperature(32, "c"));
 
@@ -85,7 +86,9 @@ console.log(convertTemperature(32, "c"));
 4.age verification 
 
 function isAdult(age) {
+
     function validateNumber(n) {
+
         n = Number(n);
         if (isNaN(n) || typeof n !== 'number') {
             return 'Invalid input: Age must be a number.';
@@ -133,6 +136,7 @@ console.log(isAdult("adc"));
 6. Discount Calculator 
 
 function calculateDiscount(price, discount) {
+
     price = Number(price);
     discount = Number(discount);
 
@@ -153,7 +157,9 @@ function calculateDiscount(price, discount) {
 7. checkAge
 
 function checkAge(age){
+
 age = parseInt(age);
+
 if (!isNaN(age)){
  return age >= 0 && age < 13? "Child":
         age >=13 && age <=19 ? "Teen":
@@ -166,7 +172,80 @@ else{
     }
 }
 checkAge();
+
 console.log(checkAge("abc"));
  
 
-8.
+8. 
+const a = 5;
+const b = 10;
+const c = 15;
+const result = a < b && b < c ? "1" : a > b && b > c ? "2" : "3";
+
+console.log(result);  
+// the output will be 1 because it checks if the a<b and b<c are really the correct conditions and returns the expression which is executed if the condition is true
+
+
+9. 
+const hasID = true;
+const over18 = false;
+const canEnterClub = hasID && over18 || !hasID;
+
+console.log(canEnterClub); //true
+//because hasid is true and over18 is false, when comparing with && operator true && fasle will return false. && looks for the last true and the first false answer
+//meanwhile in the case of || or operator it looks for the first true and last false and will return true in our case with false||true
+
+10.
+const x = 10;
+const y = 20;
+const z = 30;
+let condition = (x < y && y < z) || (x > y && y > z);
+
+console.log(condition); //true
+// it checks (x < y && y < z)  and gets true then checks (x > y && y > z) and gets false an in this case with || operator gets the result true 
+
+
+11.
+const num = 30;
+const boolean = false;
+const result = num < 18 ? "1" : boolean && num >= 18 && num <= 65 ? "2" : "3";
+
+console.log(result);
+// it gets 3 
+//looks like this 
+//num < 18   is false 
+//boolean is false, since the first expresion is false it gets false result. num <= 65 is true, but false && true is false with && operator 
+// result 3
+
+
+12. 
+const a = 5, b = 10, c = 15;
+const result = a > b && b < c || a < c && b > a;
+
+console.log(result);
+
+
+//a > b is false
+//same, with && operator it gets the first false and gives you false result so  a > b && b < c  false and true gives you false
+//a < c && b > a is true and true 
+// in case of || operator it takes the first true and the last false
+
+
+13. 
+function foo1(num){
+return  num % 2 === 0;
+}
+
+function foo2(num){
+return  num > 0;
+}
+
+let number = -4;
+let checkNumber = foo1(number) && foo2(number);
+
+console.log(checkNumber);
+
+//it gets false result 
+//in foo1 we check if the num is even or odd, even tho -4 is negative number it still gets 0 result if -4%2 so the final result is true
+//-4 is not bigger than 0 so its false
+// in checkNumber we get true and false in this operator's cale it takes the false result 
