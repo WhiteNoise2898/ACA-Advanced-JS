@@ -36,22 +36,34 @@ function rps(p1, p2) {
 
 //2. 
 
-function calculator(a, b, operator){
-  const num1 = Number(a);
-  const num2 = Number(b);
-  
-function getMyNumber(num1 && num2) {
-    // step1
-    if (typeof n !== "number" || n !== n) {
-       throw new Error('This is not a number');
+function getMyNumber(n) {
+    // Check if the input is a number or can be converted to a number
+    if (typeof n !== "number" || isNaN(n)) {
+        throw new Error('This is not a number');
     }
-
-    //my main logic
+    return n;
 }
 
-try {
-  getMyNumber("4");
-} catch(error) {
-  console.log(error);
-} 
+// Calculator function that performs basic arithmetic operations
+function calculator(a, b, operator) {
+    // Coerce inputs to numbers using parseFloat
+    a = parseInt(a);
+    b = parseInt(b);
+
+    // Perform the operation based on the provided operator
+    switch (operator) {
+        case '+':
+            return a + b;
+        case '-':
+            return a - b;
+        case '*':
+            return a * b;
+        case '/':
+            if (b === 0) { // Check for division by zero
+                return "Cannot divide by zero";
+            }
+            return a / b;
+        default:
+            return "Invalid operator";
+    }
 }
