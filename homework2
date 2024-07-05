@@ -1,4 +1,5 @@
-//1. 
+//1. Rock, Paper, Scissors
+
 const options = ["Rock", "Paper", "Scissors"];
 const getRandomOption = () => options[Math.floor(Math.random() * options.length)];
 
@@ -35,8 +36,6 @@ function rps(p1, p2) {
 
 
 //2. calculator
-
-
 
 function calculator(a, b, operator) {
 function validateNumber(n) {
@@ -112,23 +111,62 @@ console.log(isAdult("adc"));
 
 5.BMI Calculator 
 
-function calculateBMI(weight, height){
- function validateNumber(n) {
-        n = Number(n);
-        if (isNaN(n) || typeof n !== 'number') {
-            return 'Invalid input: Age must be a number.';
-        }
-        return n;
+ function calculateBMI(weight, height) {
+    weight = Number(weight);
+    height = Number(height);
+
+    switch (true) {
+        case isNaN(weight):
+            return 'Invalid input: Weight must be a number.';
+        case weight <= 0:
+            return 'Invalid input: Weight must be a positive number.';
+        case isNaN(height):
+            return 'Invalid input: Height must be a number.';
+        case height <= 0:
+            return 'Invalid input: Height must be a positive number.';
+        default:
+            return weight / (height * height);
     }
-weight = validateNumber(weight);
-height = validateNumber(height);
-
-
- if (typeof weight === 'number' && typeof height === 'number') {
-       return (weight/height/height) * 10.000;
-    } else {
-        switch 
-    }
-
 }
 
+
+6. Discount Calculator 
+
+function calculateDiscount(price, discount) {
+    price = Number(price);
+    discount = Number(discount);
+
+    if (isNaN(price) || price < 0) {
+        return 'Invalid input: Price and discount must be valid numbers, and discount must be between 0 and 100. ';
+    }
+    if (isNaN(discount) || discount < 0 || discount > 100) {
+        return 'Invalid input: Price and discount must be valid numbers, and discount must be between 0 and 100. ';
+    }
+
+    const discountedPrice = price * (1 - discount / 100);
+
+    return discountedPrice;
+    }
+}
+
+
+7. checkAge
+
+function checkAge(age){
+age = parseInt(age);
+if (!isNaN(age)){
+ return age >= 0 && age < 13? "Child":
+        age >=13 && age <=19 ? "Teen":
+        age >=20 && age <= 59 ? "Adult" :
+       age >= 60?  "Senior" :
+        "Something went wrong"
+}
+else{
+     return "Invalid age"
+    }
+}
+checkAge();
+console.log(checkAge("abc"));
+ 
+
+8.
