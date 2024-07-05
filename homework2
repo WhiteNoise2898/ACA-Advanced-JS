@@ -36,16 +36,21 @@ function rps(p1, p2) {
 
 //2. calculator
 
-function getMyNumber(n) {
-    if (typeof n !== "number" || isNaN(n)) {
-        throw new Error('This is not a number');
-    }
-    return n;
-}
+
 
 function calculator(a, b, operator) {
-    a = parseInt(a);
-    b = parseInt(b);
+function validateNumber(n) {
+    n = Number(n); 
+    if (isNaN(n)) { 
+        return 'This is not a number';
+    }
+    return n; 
+}
+    a = validateNumber(a);
+    b = validateNumber(b);
+
+    if (typeof a === 'string') return a; 
+    if (typeof b === 'string') return b; 
 
     switch (operator) {
         case '+':
@@ -55,15 +60,14 @@ function calculator(a, b, operator) {
         case '*':
             return a * b;
         case '/':
-            if (b === 0) { // Check for division by zero
+            if (b === 0) {
                 return "Cannot divide by zero";
             }
             return a / b;
         default:
             return "Invalid operator";
     }
-}
-
+};
 
 3. temperature
 
@@ -77,3 +81,54 @@ switch (scale.toLowerCase()) {
 }
 }
 console.log(convertTemperature(32, "c"));
+
+
+4.age verification 
+
+function isAdult(age) {
+    function validateNumber(n) {
+        n = Number(n);
+        if (isNaN(n) || typeof n !== 'number') {
+            return 'Invalid input: Age must be a number.';
+        }
+        return n;
+    }
+
+    age = validateNumber(age);
+    
+    if (typeof age === 'number') {
+        if (age >= 18) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        return age;
+    }
+}
+
+console.log(isAdult("adc"));
+
+
+5.BMI Calculator 
+
+function calculateBMI(weight, height){
+ function validateNumber(n) {
+        n = Number(n);
+        if (isNaN(n) || typeof n !== 'number') {
+            return 'Invalid input: Age must be a number.';
+        }
+        return n;
+    }
+weight = validateNumber(weight);
+height = validateNumber(height);
+
+
+ if (typeof weight === 'number' && typeof height === 'number') {
+       return (weight/height/height) * 10.000;
+    } else {
+        switch 
+    }
+
+}
+
