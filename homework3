@@ -1,0 +1,210 @@
+//Task 1
+function countAll(str) {
+  let letters = 0;
+  let digits = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i];
+
+    if ((char >= 'A' && char <= 'Z') || (char >= 'a' && char <= 'z')) {
+      letters++;
+    } else if (char >= '0' && char <= '9') {
+      digits++;
+    }
+  }
+
+  return {
+    LETTERS: letters,
+    DIGITS: digits
+  };
+}
+
+
+//Test 2 
+//Mrs. Gayane helped us to solve it 
+
+//Test 3
+const movies = [
+  { title: "Inception", director: "Christopher Nolan", year: 2010, genres: ["Sci-Fi", "Action"] },
+  { title: "The Dark Knight", director: "Christopher Nolan", year: 2008, genres: ["Action", "Crime"] },
+  { title: "Interstellar", director: "Christopher Nolan", year: 2014, genres: ["Sci-Fi", "Drama"] },
+];
+
+function addMovie(movie) {
+  movies.push(movie);
+}
+
+function findMoviesByDirector(director) {
+  return movies.filter(movie => movie.director === director);
+}
+
+function findMoviesByYear(year) {
+  return movies.filter(movie => movie.year === year);
+}
+
+function getMoviesByGenre(genre) {
+  return movies.filter(movie => movie.genres.includes(genre));
+}
+
+function sortMoviesBy(criteria) {
+  return movies.sort((a, b) => {
+    if (criteria === 'title') {
+      return a.title.localeCompare(b.title);
+    } else if (criteria === 'director') {
+      return a.director.localeCompare(b.director);
+    } else if (criteria === 'year') {
+      return a.year - b.year;
+    } else {
+      return 0;
+    }
+  });
+}
+
+function removeMovieByTitle(title) {
+  const index = movies.findIndex(movie => movie.title === title);
+  if (index !== -1) {
+    movies.splice(index, 1);
+  }
+}
+
+
+//Task 4
+const library = [
+  { title: "The Catcher in the Rye", author: "J.D. Salinger", ISBN: "1234567890", status: "available" },
+  { title: "To Kill a Mockingbird", author: "Harper Lee", ISBN: "2345678901", status: "borrowed" },
+];
+
+function addBook(book) {
+  library.push(book);
+}
+
+function borrowBook(ISBN) {
+  const book = library.find(book => book.ISBN === ISBN);
+  if (book && book.status === "available") {
+    book.status = "borrowed";
+  }
+}
+
+function returnBook(ISBN) {
+  const book = library.find(book => book.ISBN === ISBN);
+  if (book && book.status === "borrowed") {
+    book.status = "available";
+  }
+}
+
+function findBooksByAuthor(author) {
+  return library.filter(book => book.author === author);
+}
+
+function listAvailableBooks() {
+  return library.filter(book => book.status === "available");
+}
+
+function listBorrowedBooks() {
+  return library.filter(book => book.status === "borrowed");
+}
+
+
+
+//Task 5
+const students = [
+  { name: "Alice", ID: 1, grades: [85, 90, 78] },
+  { name: "Bob", ID: 2, grades: [92, 88, 84] },
+];
+
+function addStudent(student) {
+  students.push(student); 
+}
+
+function addGrade(ID, grade) {
+  for (let i = 0; i < students.length; i++) {
+    if (students[i].ID === ID) { 
+      students[i].grades.push(grade); 
+      return; 
+    }
+  }
+}
+
+function calculateAverageGrade(ID) {
+  for (let i = 0; i < students.length; i++) {
+    if (students[i].ID === ID) { 
+      const grades = students[i].grades; 
+      if (grades.length === 0) return null; 
+      
+      let total = 0; 
+      for (let grade of grades) {
+        total += grade; 
+      }
+      return total / grades.length; 
+    }
+  }
+  return null; 
+}
+
+function getStudentsAboveThreshold(threshold) {
+  const result = []; 
+  for (let i = 0; i < students.length; i++) {
+    const average = calculateAverageGrade(students[i].ID); 
+    if (average !== null && average > threshold) { 
+      result.push(students[i]); 
+    }
+  }
+  return result; 
+}
+
+
+
+//Task 6
+const cart = [];
+
+function addProduct(product) {
+  const existingProduct = cart.find(item => item.SKU === product.SKU);
+  if (existingProduct) {
+    existingProduct.quantity += product.quantity;
+  } else {
+    cart.push(product);
+  }
+}
+
+function removeProduct(SKU) {
+  const index = cart.findIndex(item => item.SKU === SKU);
+  if (index !== -1) {
+    cart.splice(index, 1);
+  }
+}
+
+function updateQuantity(SKU, quantity) {
+  const product = cart.find(item => item.SKU === SKU);
+  if (product) {
+    product.quantity = quantity;
+  }
+}
+
+function calculateTotal() {
+  let total = 0;
+  for (let product of cart) {
+    total += product.price * product.quantity;
+  }
+  return total;
+}
+
+function getCartDetails() {
+  return cart;
+}
+
+function applyDiscount(discountCode) {
+  const discounts = {
+    "SUMMER21": 0.10, 
+    "WINTER21": 0.15  
+  };
+  
+  const discount = discounts[discountCode];
+  if (discount) {
+    const total = calculateTotal();
+    const discountedTotal = total * (1 - discount);
+    return discountedTotal;
+  } else {
+    return calculateTotal();
+  }
+}
+
