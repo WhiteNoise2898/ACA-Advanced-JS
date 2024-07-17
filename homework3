@@ -2,7 +2,7 @@
 function countAll(str) {
   let letters = 0;
   let digits = 0;
-
+ 
   for (let i = 0; i < str.length; i++) {
     const char = str[i];
 
