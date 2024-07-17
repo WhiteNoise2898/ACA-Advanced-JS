@@ -1,0 +1,17 @@
+//1 flat()
+const nestedArray = [1, [2, [3, [4]], 5]];
+ function flattenArray(arr){
+  return arr.flat(Infinity);
+
+  }
+console.log(flattenArray(nestedArray));
+
+
+//2 reduc()
+const data = [
+  {name: 'Alice', age: 21},
+  {name: 'Bob', age: 22},
+  {name: 'Alice', age: 23},
+  ];
+
+
