@@ -14,4 +14,87 @@ const data = [
   {name: 'Alice', age: 23},
   ];
 
+function groupBy (arr, element){
+  return arr.reduce(
+}
 
+
+
+//3 zip arr w/ for
+function zipArrays(arr1, arr2) {
+  const zipped = [];
+
+  for (let i = 0; i < arr1.length; i++) {
+    zipped.push(arr1[i]);
+    zipped.push(arr2[i]);
+  }
+
+  return zipped;
+}
+
+
+//4 Chunk the arr, w/ for and slice or w/ reduce and slice
+
+//first version
+const setOfNums = [1, 2, 3, 4, 5, 6, 7];
+
+function chunkArray(arr, size) {
+    const chunks = [];
+
+    for (let i = 0; i < arr.length; i += size) {
+        const chunk = arr.slice(i, i + size);
+        chunks.push(chunk);
+    }
+
+    return chunks;
+}
+
+
+//second version
+function chunkArray(arr, size) {
+    return arr.reduce((acc, _, index) => {
+        if (index % size === 0) {
+            acc.push(arr.slice(index, index + size));
+        }
+        return acc;
+    }, []);
+}
+
+
+//5 Intersection w/ filter and includes
+const setA = [1, 2, 3];
+const setB = [2, 3, 4];
+
+function arrayIntersection (){
+  const intersection = setA.filter(x => setB.includes(x));;
+
+  return intersection
+}
+
+//6 Dublicates
+const set = [4, 3, 2, 7, 8, 2, 3, 1];
+
+function Duplicates(arr) {
+  const doubles = arr.reduce((acc, num) => {
+    acc[num] = (acc[num] || 0) + 1;
+    return acc;
+  }, {});
+
+  const duplicates = Object.keys(doubles)
+    .filter(num => doubles[num] > 1)
+    .map(num => parseInt(num));
+
+  return duplicates;
+}
+
+
+//7
+
+
+//8
+
+
+//9
+
+
+//10
