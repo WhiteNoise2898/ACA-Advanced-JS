@@ -7,17 +7,25 @@ const nestedArray = [1, [2, [3, [4]], 5]];
 console.log(flattenArray(nestedArray));
 
 
-//2 reduc()
+
+
+
+//2 reduce()
 const data = [
   {name: 'Alice', age: 21},
   {name: 'Bob', age: 22},
   {name: 'Alice', age: 23},
   ];
 
-function groupBy (arr, element){
-  return arr.reduce(
+function groupBy(arr, key) {
+  return arr.reduce((acc, curr) => {
+    const keyValue = curr[key];
+    
+    (acc[keyValue] = acc[keyValue] || []).push(curr);
+    
+    return acc;
+  }, {}); 
 }
-
 
 
 //3 zip arr w/ for
@@ -31,6 +39,8 @@ function zipArrays(arr1, arr2) {
 
   return zipped;
 }
+
+
 
 
 //4 Chunk the arr, w/ for and slice or w/ reduce and slice
@@ -61,6 +71,8 @@ function chunkArray(arr, size) {
 }
 
 
+
+
 //5 Intersection w/ filter and includes
 const setA = [1, 2, 3];
 const setB = [2, 3, 4];
@@ -70,6 +82,8 @@ function arrayIntersection (){
 
   return intersection
 }
+
+
 
 //6 Dublicates
 const set = [4, 3, 2, 7, 8, 2, 3, 1];
@@ -88,16 +102,65 @@ function Duplicates(arr) {
 }
 
 
-//7
 
+
+//7 Matrix
+function rotateImage(matrix) {
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = i; j < matrix[i].length; j++) {
+      let temp = matrix[i][j];
+      matrix[i][j] = matrix[j][i];
+      matrix[j][i] = temp;
+    }
+  }
+  for (let i = 0; i < matrix.length; i++) {
+    matrix[i].reverse();
+  }
+  return matrix;
+}
+
+
+//second version w/ methods
+function rotateImage(matrix) {
+  const invert = matrix[0].map((_, colIndex) => matrix.map(row => row[colIndex]));
+
+  const rotated = invert.map(row => row.reverse());
+
+  return rotated;
+}
 
 //8
 
+//first version 
+function countOccurrences(fruits) {
+  const counts = {};
+  for (const fruit of fruits) {
+    if (counts[fruit]) {
+      counts[fruit]++;
+    } else {
+      counts[fruit] = 1;
+    }
+  }
+  return counts;
+}
+
+//second version
+function countOccurrences(characters) {
+  const charactersByQuantity = characters.reduce((acc, curr) => {
+    if (acc[curr]) {
+      acc[curr]++;
+    } else {
+      acc[curr] = 1;
+    }
+    return acc;
+  }, {});
+  
+  return charactersByQuantity;
+}
+
 
 //9
-
 function factorial(n) {
-
   const numbers = [];
   for (let i = 1; i <= n; i++) {
     numbers.push(i);
