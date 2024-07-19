@@ -96,5 +96,17 @@ function Duplicates(arr) {
 
 //9
 
+function factorial(n) {
+
+  const numbers = [];
+  for (let i = 1; i <= n; i++) {
+    numbers.push(i);
+  }
+
+  const result = numbers.reduce((acc, curr) => acc * curr, 1);
+
+  return result;
+}
+
 
 //10
