@@ -1,0 +1,54 @@
+//1 sort/ 
+
+//2
+
+//3
+
+//4 anagram
+const strs = ["eat", "tea", "tan", "ate", "nat", "bat"];
+
+function groupAnagrams(arr) {
+    const anagramsMap = {};
+    for (const word of strs) {
+        const key = word.split('').sort().join('');
+        if (anagramsMap[key]) {
+            anagramsMap[key].push(word);
+        } else {
+            anagramsMap[key] = [word];
+        }
+    }
+    return Object.values(anagramsMap);
+}
+
+groupAnagrams(strs);
+
+//5. IIFE
+const arr = [1, 2, 3, 4, 5];
+const sum = (function(array) {
+    return array.reduce((acc, curr) => acc + curr, 0);
+})(arr);
+console.log(sum); // Output: 15
+
+
+//6. 
+const arr = [1, 2, 3, 4, 5, 6];
+const evens = (function(array) {
+    return array.filter(num => num % 2 === 0);
+})(arr);
+console.log(evens); // Output: [2, 4, 6]
+
+
+//7.  
+const str = "hello";
+const reversed = (function(s) {
+    return s.split('').reverse().join('');
+})(str);
+console.log(reversed); // Output: "olleh"
+
+//8
+
+
+//9
+
+
+//10 from previous homework 
