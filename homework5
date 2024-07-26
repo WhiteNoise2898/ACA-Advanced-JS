@@ -1,10 +1,17 @@
-//1 sort/ 
+//1 sort 
+const randomNums = [3, 2, 1, 5, 6, 4];
+const k = 2;
+function findKthLargest(arr, num){
+arr.sort((a, b) => b - a);
+let index = num - 1;
+return arr[index];
+
+}
+findKthLargest(randomNums, k);
 
 //2
 
-//3
-
-//4 anagram
+//3 anagram
 const strs = ["eat", "tea", "tan", "ate", "nat", "bat"];
 
 function groupAnagrams(arr) {
@@ -21,6 +28,8 @@ function groupAnagrams(arr) {
 }
 
 groupAnagrams(strs);
+
+//4
 
 //5. IIFE
 const arr = [1, 2, 3, 4, 5];
@@ -45,10 +54,48 @@ const reversed = (function(s) {
 })(str);
 console.log(reversed); // Output: "olleh"
 
-//8
 
 
-//9
+//8findIndexImplementation
+function findIndex(array, callback) {
+for (let i = 0; i < array.length; i++) {
+        if (callback(array[i], i, array)) {
+            return i; 
+        }
+    }
+    return -1;
+}
+
+// Example usage:
+const array = [5, 12, 8, 130, 44];
+const index = findIndex(array, function(element) {
+return element > 10;
+});
+console.log(index);
+
+
+
+//9 filter implementation
+function simpleFilter(array, callback) {
+ const result = [];
+    
+    for (let i = 0; i < array.length; i++) {
+        if (callback(array[i], i, array)) {
+            result.push(array[i]); 
+        }
+    }
+    
+    return result;
+}
+
+// Example usage:
+const numbers = [1, 2, 3, 4, 5, 6];
+
+// Filter even numbers
+const evenNumbers = simpleFilter(numbers, function(element) {
+return element % 2 === 0;
+});
+console.log(evenNumbers);
 
 
 //10 from previous homework 
