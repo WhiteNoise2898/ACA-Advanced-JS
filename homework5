@@ -9,61 +9,110 @@ return arr[index];
 }
 findKthLargest(randomNums, k);
 
+
+
 //2
+const arr1 = [3, 2, 3];
+const arr2 = [5, 4, 3, 5]
+
+function findMajorityElement(array) {
+const counts = {}; 
+const n = array.length;
+    
+for (let i = 0; i < n; i++) {
+const element = array[i];
+if (counts[element]) {
+counts[element]++;
+} else {
+counts[element] = 1;
+}
+}
+    
+for (const element in counts) {
+if (counts[element] > n / 2) {
+return element; 
+}
+}   
+return null; 
+}
+
+findMajorityElement(arr1); 
+findMajorityElement(arr2);
+
+
 
 //3 anagram
 const strs = ["eat", "tea", "tan", "ate", "nat", "bat"];
 
 function groupAnagrams(arr) {
-    const anagramsMap = {};
-    for (const word of strs) {
-        const key = word.split('').sort().join('');
-        if (anagramsMap[key]) {
-            anagramsMap[key].push(word);
-        } else {
-            anagramsMap[key] = [word];
-        }
-    }
-    return Object.values(anagramsMap);
+const anagramsMap = {};
+for (const word of strs) {
+const key = word.split('').sort().join('');
+if (anagramsMap[key]) {
+anagramsMap[key].push(word);
+} else {
+anagramsMap[key] = [word];
+}
+}
+return Object.values(anagramsMap);
 }
 
 groupAnagrams(strs);
 
-//4
+//4 used this website's code as an example https://medium.com/@stheodorejohn/combination-sum-leetcode-javascript-solution-e92e155baee1
+function combinationSum(candidates, target) {
+const dp = Array.from({ length: target + 1 }, () => []);
+dp[0] = [[]];
+
+for (const candidate of candidates) {
+for (let i = candidate; i <= target; i++) {
+dp[i] = dp[i].concat(dp[i - candidate].map(combination => [...combination, candidate]));
+}
+}
+
+return dp[target];
+}
+
+
+
+// Example usage
+const candidates = [10, 1, 2, 7, 6, 1, 5];
+const target = 8;
+console.log(combinationSum(candidates, target));
+
 
 //5. IIFE
 const arr = [1, 2, 3, 4, 5];
 const sum = (function(array) {
-    return array.reduce((acc, curr) => acc + curr, 0);
+return array.reduce((acc, curr) => acc + curr, 0);
 })(arr);
-console.log(sum); // Output: 15
+console.log(sum);
 
 
 //6. 
 const arr = [1, 2, 3, 4, 5, 6];
 const evens = (function(array) {
-    return array.filter(num => num % 2 === 0);
+return array.filter(num => num % 2 === 0);
 })(arr);
-console.log(evens); // Output: [2, 4, 6]
-
+console.log(evens); 
 
 //7.  
 const str = "hello";
 const reversed = (function(s) {
-    return s.split('').reverse().join('');
+return s.split('').reverse().join('');
 })(str);
-console.log(reversed); // Output: "olleh"
+console.log(reversed); 
 
 
 
 //8findIndexImplementation
 function findIndex(array, callback) {
 for (let i = 0; i < array.length; i++) {
-        if (callback(array[i], i, array)) {
-            return i; 
-        }
-    }
-    return -1;
+if (callback(array[i], i, array)) {
+return i; 
+}
+}
+return -1;
 }
 
 // Example usage:
@@ -77,15 +126,15 @@ console.log(index);
 
 //9 filter implementation
 function simpleFilter(array, callback) {
- const result = [];
+const result = [];
     
-    for (let i = 0; i < array.length; i++) {
-        if (callback(array[i], i, array)) {
-            result.push(array[i]); 
-        }
-    }
+for (let i = 0; i < array.length; i++) {
+if (callback(array[i], i, array)) {
+result.push(array[i]); 
+}
+}
     
-    return result;
+return result;
 }
 
 // Example usage:
@@ -98,4 +147,21 @@ return element % 2 === 0;
 console.log(evenNumbers);
 
 
-//10 from previous homework 
+//10 missing number with reduce() from previous homework 
+const consecutiveNumbers = [1, 2, 3, 5, 6];
+
+function findMissingNumber(array){
+const min =  Math.min(...array);
+const max = Math.max(...array);
+
+const actualSum = array.reduce((sum, num) => sum + num, 0);
+const expectedSum = ((max - min + 1) * (min + max)) / 2;
+return expectedSum - actualSum;
+}}
+
+findMissingNumber(consecutiveNumbers);
+
+
+//this is the formula 'sum of an arithmetic series'
+Expected Sum= ((last−first+1)×(first+last)/2) 
+​
